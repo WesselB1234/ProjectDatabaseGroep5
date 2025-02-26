@@ -31,6 +31,7 @@ namespace ProjectDatabaseGroep5
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
             app.Run();
+            //test
         }
     }
 }
