@@ -1,9 +1,25 @@
 ﻿@model List<ProjectDatabaseGroep5.Models.Room>
 
+@{
+    ViewData["Title"] = "Rooms";
+}
+
 <div class="text-center">
     <h1 class="display-4">Rooms</h1>
     <p>number of rooms in the list: @Model.Count</p>
 </div>
+
+<form action="~/Rooms/Index" method="GET">
+    <div class="w-50 mx-auto">
+        <label for="roomFilterer">Filter room by size</label>
+        <div class="input-group">
+            <input type="text" id="roomFilterer" class="form-control" placeholder="Size">
+            <div class="input-group-append">
+                <input class="btn btn-outline-secondary" type="submit" value="Filter"></input>
+            </div>
+        </div>
+    </div>
+</form>
 
 <a href="/Room/Create">Create a room</a>
 

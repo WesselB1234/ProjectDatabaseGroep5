@@ -4,11 +4,11 @@ using ProjectDatabaseGroep5.Repositories;
 
 namespace ProjectDatabaseGroep5.Controllers
 {
-    public class RoomController : Controller
+    public class RoomsController : Controller
     {
         private readonly IRoomsRepository _roomsRepository;
 
-        public RoomController(IRoomsRepository roomsRepository)
+        public RoomsController(IRoomsRepository roomsRepository)
         {
             _roomsRepository = roomsRepository;
         }
