@@ -1,3 +1,5 @@
+using ProjectDatabaseGroep5.repositories;
+
 namespace ProjectDatabaseGroep5
 {
     public class Program
@@ -8,6 +10,7 @@ namespace ProjectDatabaseGroep5
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddSingleton<ILecturerRepository, DbLecturerRepository>();
 
             var app = builder.Build();
 
