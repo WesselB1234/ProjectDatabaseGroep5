@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Activities";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Activities</h1>
+    <p>number of activities in the list: @Model.Count</p>
+    <a href="/Activities/Create">Create New</a>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Date/Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var activity in Model)
+            {
+                <tr>
+                    <td>@activity.name</td>
+                    <td>@activity.start_date</td>
+                    <td>
+                        <a href="/Activities/Edit/@activity.id">Edit</a> |
+                        <a href="/Activities/Delete/@activity.id">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
