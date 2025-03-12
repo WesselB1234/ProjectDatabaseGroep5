@@ -50,7 +50,7 @@ namespace MvcWhatsUp.Repositories
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                string query = "SELECT * FROM Room";
+                string query = "SELECT * FROM Room ORDER BY [building_id], [story], [location_number]";
                 SqlCommand command = new SqlCommand(query, connection);
 
                 command.Connection.Open();
