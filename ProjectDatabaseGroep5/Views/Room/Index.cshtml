@@ -1,0 +1,51 @@
+﻿@model List<ProjectDatabaseGroep5.Models.Room>
+
+<div class="text-center">
+    <h1 class="display-4">Rooms</h1>
+    <p>number of rooms in the list: @Model.Count</p>
+</div>
+
+<a href="/Room/Create">Create a room</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Number
+            </th>
+            <th>
+                Size (beds)
+            </th>
+            <th>
+                Type
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(Room room in Model)
+        {   
+            string roomType = "Student";
+
+            if (room.AvailableBeds > 1)
+            {
+                roomType = "Lecturer";
+            }
+
+            <td>
+                @room.RoomId
+            </td>
+            <td>
+                @room.AvailableBeds
+            </td>
+            <td>
+                @roomType
+            </td>
+            <td>
+                <a href="/Room/Edit/@room.RoomId">Edit</a> | <a href="/Room/Delete/@room.RoomId">Delete</a>
+            </td>
+        }
+    </tbody>
+</table>

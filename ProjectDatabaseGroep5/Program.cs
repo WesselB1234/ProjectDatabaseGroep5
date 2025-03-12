@@ -1,3 +1,6 @@
+using MvcWhatsUp.Repositories;
+using ProjectDatabaseGroep5.Repositories;
+
 namespace ProjectDatabaseGroep5
 {
     public class Program
@@ -8,6 +11,7 @@ namespace ProjectDatabaseGroep5
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddSingleton<IRoomsRepository, DbRoomsRepository>();
 
             var app = builder.Build();
 
