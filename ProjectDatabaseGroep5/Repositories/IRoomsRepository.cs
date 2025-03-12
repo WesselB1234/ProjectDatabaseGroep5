@@ -6,6 +6,7 @@ namespace ProjectDatabaseGroep5.Repositories
     {
         List<Room> GetAll();
         Room? GetById(int userId);
+        List<Room> GetBySize(int? size);
         void Add(Room room);
         void Update(Room room);
         void Delete(Room room);

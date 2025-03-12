@@ -13,9 +13,20 @@ namespace ProjectDatabaseGroep5.Controllers
             _roomsRepository = roomsRepository;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int? size)
         {
-            List<Room> rooms = _roomsRepository.GetAll();
+            List<Room> rooms = [];
+
+            if (size == null)
+            {
+                rooms = _roomsRepository.GetAll();
+            }
+            else
+            {
+                rooms = _roomsRepository.GetBySize(size);
+                ViewData["Size"] = size;
+            }
+
             return View(rooms);
         }
     }

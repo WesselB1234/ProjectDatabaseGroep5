@@ -138,5 +138,33 @@ namespace MvcWhatsUp.Repositories
             //    }
             //}
         }
+
+        public List<Room> GetBySize(int? size)
+        {
+            List<Room> rooms = new List<Room>();
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                string query = "SELECT * FROM Room " +
+                    "WHERE [available_beds] = @Size " +
+                    "ORDER BY [building_id], [story], [location_number];";
+
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Size", size);
+
+                command.Connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Room room = ReadRoom(reader);
+                    rooms.Add(room);
+                }
+
+                reader.Close();
+            }
+
+            return rooms;
+        }
     }
 }

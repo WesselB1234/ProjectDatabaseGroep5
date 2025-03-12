@@ -2,6 +2,13 @@
 
 @{
     ViewData["Title"] = "Rooms";
+
+    string filterValue = "";
+
+    if (ViewData["Size"] != null)
+    {
+        filterValue = ViewData["Size"].ToString();
+    }
 }
 
 <div class="text-center">
@@ -13,7 +20,7 @@
     <div class="w-50 mx-auto">
         <label for="roomFilterer">Filter room by size</label>
         <div class="input-group">
-            <input type="text" id="roomFilterer" class="form-control" placeholder="Size">
+            <input type="text" id="roomFilterer" name="size" class="form-control" placeholder="Size" value="@filterValue">
             <div class="input-group-append">
                 <input class="btn btn-outline-secondary" type="submit" value="Filter"></input>
             </div>
